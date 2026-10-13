@@ -15,7 +15,7 @@ def analyze_titanic(data: TitanicInput) -> TitanicSummary:
 
     mean_age_by_pclass = {}
     for i in df["Pclass"].unique().tolist():
-        mean_age_by_pclass[i] = float(df[df["Pclass"] == 1]["Age"].mean())
+        mean_age_by_pclass[i] = float(df[df["Pclass"] == i]["Age"].mean())
 
     survived_count = int(df["Survived"].sum())
     survival_rate_by_pclass = {}
@@ -34,4 +34,4 @@ def analyze_titanic(data: TitanicInput) -> TitanicSummary:
         highest_fares=highest_fares
     )
 
-# print(analyze_titanic(TitanicInput(csv_path="titanic.csv")))
+print(analyze_titanic(TitanicInput(csv_path="titanic.csv")))
